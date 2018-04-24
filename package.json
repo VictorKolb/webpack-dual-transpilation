@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "babel-loader": "^7.1.4",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "npm-run-all": "^4.1.2",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15",
+    "webpack-merge": "^4.1.2"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development npm-run-all --parallel \"webpack:*  -- --watch\"",
+    "build": "NODE_ENV=production npm-run-all --parallel  \"webpack:*\"",
+    "webpack:modern": "webpack --config ./webpack/modern.js",
+    "webpack:legacy": "webpack --config ./webpack/legacy.js"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  }
+}
